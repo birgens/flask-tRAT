@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ test['title'] }}</h1>
+<div>{{ test.body }}</div>
+
+{% for question in test.questions %}
+<h2>{{ question.title }}</h2>
+<div>{{ question.body }}</div>
+
+<ul>
+{% for answer in question.answers %}
+<li data-id={{answer.id}} onclick="answer(this);">{{answer.body}}</li>
+{% endfor %}
+</ul>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> {{ test.title }} </h2>
+{% for question in test.questions %}
+<h3>{{ question.title }}</h3>
+<div> {{ question.body }}</div>
+<table>
+  <tr>
+    <th>Team</th>
+    <th>Answer</th>
+  </tr>
+{% for team in question.teams %}
+<tr>
+<td>{{ team.id }}</t>
+
+{% for answer in team.answers %}
+<td {% if answer.weight == 100 %}style="color:green"{% endif %}>{{answer.body}}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</table>
+{% endfor %}
+{% endblock %}
